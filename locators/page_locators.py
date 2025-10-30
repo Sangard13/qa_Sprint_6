@@ -6,9 +6,9 @@ class OrderPageLocators:
     NAME = (By.XPATH, "//input[@placeholder='* Имя']")
     SURNAME = (By.XPATH, "//input[@placeholder='* Фамилия']")
     ADDRESS = (By.XPATH, "//input[@placeholder='* Адрес: куда привезти заказ']")
-    METRO = (By.XPATH, "//input[@placeholder='* Станция метро']")
+    METRO_INPUT = (By.XPATH, "//input[@placeholder='* Станция метро']")
     PHONE_NUMBER = (By.XPATH, "//input[@placeholder='* Телефон: на него позвонит курьер']")
-    METRO_STATION = (By.XPATH, "//div[text()='{}']")
+    METRO_STATION = (By.XPATH, "//div[@class='select-search__select']//button[contains(., '{}')]")
     NEXT_BUTTON = (By.XPATH, "//button[text()='Далее']")
 
     # Вторая страница заказа

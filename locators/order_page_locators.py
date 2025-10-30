@@ -6,15 +6,15 @@ class OrderPageLocators:
     NAME = (By.XPATH, "//input[@placeholder='* Имя']")
     SURNAME = (By.XPATH, "//input[@placeholder='* Фамилия']")
     ADDRESS = (By.XPATH, "//input[@placeholder='* Адрес: куда привезти заказ']")
-    METRO = (By.XPATH, "//input[@placeholder='* Станция метро']")
+    METRO_FIELD = (By.XPATH, "//input[@placeholder='* Станция метро']")
     PHONE_NUMBER = (By.XPATH, "//input[@placeholder='* Телефон: на него позвонит курьер']")
-    METRO_STATION = (By.XPATH, "//div[text()='{}']")
+    METRO_STATION = (By.XPATH, "//div[contains(@class, 'select-search__row')]//button[contains(., '{}')]")
     NEXT_BUTTON = (By.XPATH, "//button[text()='Далее']")
 
     # Вторая страница заказа
     DATE = (By.XPATH, "//input[@placeholder='* Когда привезти самокат']")
     RENTAL_PERIOD = (By.XPATH, "//div[text()='* Срок аренды']")
-    RENTAL_OPTION = (By.XPATH, "//div[text()='{}']")
+    RENTAL_OPTION = (By.XPATH, "//div[@class='Dropdown-option' and text()='{}']")
     BLACK_CHECKBOX = (By.ID, "black")
     GREY_CHECKBOX = (By.ID, "grey")
     COMMENT = (By.XPATH, "//input[@placeholder='Комментарий для курьера']")
@@ -22,4 +22,4 @@ class OrderPageLocators:
 
     # Модальные окна
     CONFIRM_BUTTON = (By.XPATH, "//button[text()='Да']")
-    SUCCESS_TITLE = (By.CLASS_NAME, "Order_ModalHeader__3FDaJ")
+    SUCCESS_TITLE = (By.CLASS_NAME, "//div[contains(@class, 'Order_ModalHeader')]")
