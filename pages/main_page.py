@@ -1,4 +1,5 @@
 import allure
+import time
 from pages.base_page import BasePage
 from locators.main_locators import MainLocators
 
@@ -10,14 +11,21 @@ class MainPage(BasePage):
     @allure.step("Открыть главную страницу")
     def open_main_page(self):
         self.open("/")
+        time.sleep(2)  # Даем время для загрузки
 
     @allure.step("Нажать на кнопку 'Заказать' в {button_type}")
     def click_order_btn(self, button_type):
         if button_type == "top":
+            # Прокручиваем к верхней кнопке и кликаем
+            self.scroll_to_element(MainLocators.HEADER_ORDER_BUTTON)
+            time.sleep(1)
             self.click_element(MainLocators.HEADER_ORDER_BUTTON)
         else:
+            # Прокручиваем к нижней кнопке и кликаем
             self.scroll_to_element(MainLocators.FOOTER_ORDER_BUTTON)
+            time.sleep(1)
             self.click_element(MainLocators.FOOTER_ORDER_BUTTON)
+        time.sleep(2)  # Ждем загрузки формы заказа
 
     @allure.step("Нажать на логотип Самоката")
     def click_scooter_logo(self):
@@ -32,6 +40,7 @@ class MainPage(BasePage):
         question_locator = (MainLocators.QUESTION[0], MainLocators.QUESTION[1].format(index))
         self.scroll_to_element(question_locator)
         self.click_element(question_locator)
+        time.sleep(1)  # Ждем раскрытия ответа
 
     @allure.step("Получить текст ответа для вопроса {index}")
     def get_answer_text(self, index):
