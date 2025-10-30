@@ -1,6 +1,6 @@
 import pytest
 import allure
-import time
+
 from pages.main_page import MainPage
 from pages.order_page import OrderPage
 from data import OrderData

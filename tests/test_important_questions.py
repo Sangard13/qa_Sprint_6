@@ -12,4 +12,7 @@ class TestImportantQuestions:
         main_page = MainPage(driver)
         main_page.open_main_page()
 
-        main_page.click_question
+        main_page.click_question(question_index)
+        actual_answer = main_page.get_answer_text(question_index)
+
+        assert actual_answer == expected_answer
